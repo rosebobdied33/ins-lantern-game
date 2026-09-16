@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000">
+<defs>
+ <filter id="bleed" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="fractalNoise" baseFrequency=".008 .013" numOctaves="3" seed="19" result="grain"/><feDisplacementMap in="SourceGraphic" in2="grain" scale="105" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="9"/></filter>
+ <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".6" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".1"/></feComponentTransfer></filter>
+ <radialGradient id="jade"><stop stop-color="#164f48" stop-opacity=".65"/><stop offset=".62" stop-color="#568b73" stop-opacity=".3"/><stop offset="1" stop-color="#88b49a" stop-opacity="0"/></radialGradient>
+ <radialGradient id="violet"><stop stop-color="#665078" stop-opacity=".58"/><stop offset=".58" stop-color="#9c88ae" stop-opacity=".3"/><stop offset="1" stop-color="#b5a8c7" stop-opacity="0"/></radialGradient>
+</defs>
+<g filter="url(#bleed)"><ellipse cx="140" cy="180" rx="490" ry="370" fill="url(#jade)"/><ellipse cx="1140" cy="700" rx="500" ry="510" fill="url(#jade)"/><ellipse cx="1050" cy="90" rx="530" ry="360" fill="url(#violet)"/><ellipse cx="280" cy="900" rx="570" ry="370" fill="url(#violet)"/><path d="M-60 430 Q260 200 500 420 T1040 390 T1520 110" fill="none" stroke="#487b66" stroke-opacity=".18" stroke-width="85"/><path d="M-90 760 Q280 390 710 760 T1500 500" fill="none" stroke="#827093" stroke-opacity=".2" stroke-width="70"/></g>
+<path fill="#536959" opacity=".45" filter="url(#paper)" d="M0 0h1400v1000H0z"/>
+</svg>

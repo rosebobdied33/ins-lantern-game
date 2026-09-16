@@ -1,18 +1,89 @@
 const stores=[
-['绿洲','城市里的精神绿洲，给你最顶的派对氛围','落日飞车驶向绿洲站，抵达属于夜晚的音乐乌托邦。','1F'],
-['INS TOWN','来魔法小镇赢下今晚的第一杯酒','坠入暮色小镇',''],
-['HUSH','来自北京，听点纯正的嘻哈','末日战车加载完毕，带上你的Crew，开启午夜暴走模式！','3F'],
-['upperwood','踩下复古专车的油门，对准UPPERWOOD的松弛入口，驶入霓虹与烟雾交织的都市幻夜。','落日余晖下，松弛与律动同频','2F'],
-['RADI','一场蓄谋已久的「邂逅」。','循着低频声场驶入暗夜车站 把夜晚无限拉长',''],
-['KZ','将纯粹的Live体验带进生活，Live.For This','踩下油门，奔赴现场，今夜每一首歌都是你的最佳配速。','2F'],
-['CC','男孩的高能社交派对','油门踩死，对准时光隧道，带你驶入纸醉金迷的好莱坞午夜幻梦！','3F'],
-['得体','这里真的太黑了，喜欢抓手指的嘉豪就别进来了','Sonic Ruins. 废墟声场',''],
-['FRIENDS','FRIENDS是有一些无法解释的事情的抽象俱乐部。',"Let's偷吃",''],
-['La fin','欧美流行音乐的快乐老家','Driving down with the sunset. 落日为伴，让LaFin陪你驶入夜幕','3F'],
-['Jump','JUMP into 2016','复古超跑载着欧美流行，从落日开进JUMP的夜晚。','4F'],
-['便利店','边吃边蹦边干杯，打碟打酒打咖啡','一辆移动的蹦迪购物车，自制一杯调酒，为今晚派对加点快乐补给！',''],
-['INSHOST','','专属Cybertruck座驾把夜晚无限拉长，只管尽兴，管家自会接住一切。',''],
-['INSLAND','','让落日飞车带着你一起去追一场属于音乐与城市的浪漫日落！','']];
+  [
+    "绿洲",
+    "城市里的精神绿洲，让音乐与快乐生长",
+    "循着花灯走进绿洲，今夜的好戏随音乐开场。",
+    "1F"
+  ],
+  [
+    "INS TOWN",
+    "藏着微醺魔法的小镇，等你来做客",
+    "灯火点亮魔法小镇，一场奇遇从碰杯开始。",
+    ""
+  ],
+  [
+    "HUSH",
+    "纯正嘻哈，自有态度与声量。",
+    "花灯亮起，低频入场，和你的 Crew 一起闹游园。",
+    "3F"
+  ],
+  [
+    "upperwood",
+    "复古氛围与轻松律动，让夜晚慢下来",
+    "灯影摇曳，旋律漫开，在游园深处自在片刻。",
+    "2F"
+  ],
+  [
+    "RADI",
+    "让低频拉近距离，让邂逅自然发生",
+    "循着低频穿过灯影，下一场好戏，是与你相遇。",
+    ""
+  ],
+  [
+    "KZ",
+    "为现场而来，让热爱在音乐中回响",
+    "花灯为序，现场开篇，把今夜唱成游园的回响。",
+    "2F"
+  ],
+  [
+    "CC",
+    "男孩们的高能社交场，让快乐尽兴登场",
+    "星灯亮起，快乐开场，今夜你也是好戏的主角。",
+    "3F"
+  ],
+  [
+    "得体",
+    "藏进暗处，让身体跟着声音寻找方向",
+    "游园有明灯，也有暗场，循声走进得体的夜。",
+    ""
+  ],
+  [
+    "FRIENDS",
+    "不必解释的抽象俱乐部，快乐自有逻辑",
+    "百戏游园，抽象开演，和 FRIENDS 一起不按常理出场。",
+    ""
+  ],
+  [
+    "La fin",
+    "欧美流行音乐的快乐老家，熟悉又上头",
+    "灯下响起熟悉的副歌，让全场合唱成为今夜好戏。",
+    "3F"
+  ],
+  [
+    "Jump",
+    "跳进 2016，让熟悉的旋律再次沸腾",
+    "花灯一亮，回忆开场，跟着那年的旋律跳进今夜。",
+    "4F"
+  ],
+  [
+    "便利店",
+    "边吃边蹦边干杯，快乐补给随时就位",
+    "逛到这里，快乐续杯，为下一场好戏补满兴致。",
+    ""
+  ],
+  [
+    "INSHOST",
+    "今夜尽兴游园，贴心照应始终在场",
+    "灯火深处，安心做客，你的游园兴致由我们照应。",
+    ""
+  ],
+  [
+    "INSLAND",
+    "音乐与城市在此相遇，每一晚都有新故事",
+    "一灯一场戏，一步一重境，来百戏游园遇见你的夜。",
+    ""
+  ]
+];
 const $ = id => document.getElementById(id);
 const shuffle = input => { const a=[...input]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
 const escapeHTML = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -44,7 +115,7 @@ function updateBest(){const best=T.completed(scores)[0];$('best').textContent=be
 function recordResult(won,remaining){const bonus=won?remaining*10:0;const score=points+bonus;const elapsedCs=won?T.elapsed(performance.now(),startedAt):6000;const entry={id:crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random(),name:player,score,matched:matched.length,attempts,won,elapsedCs,date:Date.now()};scores=storageAvailable?readScores():scores;const rank=T.rank(scores,entry);scores.push(entry);scores.sort(T.compare);scores=scores.slice(0,100);try{localStorage.setItem(SCORE_KEY,JSON.stringify(scores));}catch{storageAvailable=false;}return {...entry,rank,bonus,base:matched.length*100,comboPoints};}
 function finish(won){if(!playing)return;const remaining=Math.max(0,Math.ceil((deadline-performance.now())/1000));playing=false;locked=true;clearInterval(timer);turn++;clearUrgency();$('board').inert=true;currentResult=recordResult(won,remaining);$('live-score').textContent=currentResult.score;updateBest();$('elapsed-time').textContent=T.format(currentResult.elapsedCs);
  if(matched.length){recommended=matched[Math.floor(Math.random()*matched.length)];const s=stores[recommended];$('recommend-art').innerHTML=art(recommended);$('result-content').innerHTML=`<span class="small-badge">${won?'全部点亮':'已点亮的相遇'} · 今晚的花灯签</span><h3>${s[0]}</h3><p>${s[1]}</p><span class="floor-inline">${s[3]?s[3]+' · 示意楼层':'楼层待确认'}</span>`;$('guide').disabled=false;$('guide').textContent='查看门店指引 →';}
- $('message').textContent=won?'✦ 所有花灯已点亮，今晚的目的地已揭晓。':`时间到！点亮 ${matched.length} 家门店，下一局继续。`;beep(won?780:240,.35,.07);showResult();
+ $('message').textContent=won?'✦ 你的花灯已点亮，今晚的好戏在这里。':`时间到！点亮 ${matched.length} 家门店，下一局继续。`;beep(won?780:240,.35,.07);showResult();
 }
 function rankRows(){return T.completed(scores).slice(0,5).map(s=>{const rank=T.rank(scores,s);return '<li class="'+(currentResult?.id===s.id?'is-you':'')+'"><span class="rank-no">'+String(rank).padStart(2,'0')+'</span><span>'+escapeHTML(s.name)+(currentResult?.id===s.id?'<small>本局</small>':'')+'</span><strong>'+T.format(s.elapsedCs)+'<em> 秒</em></strong></li>';}).join('');}
 function showResult(){const r=currentResult;if(!r)return;const rankText=r.won?(r.rank>100?'100+':r.rank):'—';$('result-body').innerHTML='<div class="eyebrow">'+(r.won?'YOUR CHALLENGE TIME':'UNTIL WE MEET AGAIN')+'</div><h2>'+(r.won?'灯火全明，快意游园':'游园未尽，下局再会')+'</h2><div class="final-score final-time"><strong>'+T.format(r.elapsedCs)+'<em>秒</em></strong><span>'+(r.won?'本次通关用时 · 越快越好':'挑战已用时 · 本次未通关')+'</span></div><div class="result-metrics"><div><strong>'+r.matched+'<em> / 6</em></strong><span>点亮门店</span></div><div><strong>'+r.score+'</strong><span>本局积分</span></div><div><strong>'+rankText+'</strong><span>'+(r.won?'本机速度排名':'未进入速度榜')+'</span></div></div><div class="score-breakdown"><span>配对 '+r.base+'</span><span>连击 '+r.comboPoints+'</span><span>时间奖励 '+r.bonus+'</span></div><div class="rank-heading"><h3>游园竞速榜</h3><span>TOP 5 · 用时越短越靠前</span></div><ol class="ranking">'+(rankRows()||'<li class="empty-rank">还没有通关记录，下一局等你上榜。</li>')+'</ol><p class="storage-note">'+(storageAvailable?'本机榜单 · 仅限成功通关 · 相同用时并列排名。旧版积分成绩不参与竞速排名。':'成绩暂时无法保存，当前榜单仅在本次会话内有效。')+'</p><div class="result-actions"><button class="primary" id="play-again">再挑战一次 ↻</button><button class="secondary" id="see-destination">'+(recommended!==null?'查看我的目的地 →':'逛逛全部门店 →')+'</button></div>';$('play-again').onclick=start;$('see-destination').onclick=()=>{$('result-dialog').close();recommended!==null?detail(recommended):directory();};$('result-dialog').showModal();}
